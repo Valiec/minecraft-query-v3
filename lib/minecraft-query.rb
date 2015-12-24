@@ -3,7 +3,7 @@ module MinecraftQuery
   require 'timeout'
   
   require 'query/query'
-  # require 'rcon/rcon'
+  require 'rcon/rcon'
   
   #
   # Connects to a Minecraft server's RCON or Query port to send commands or fetch data.
