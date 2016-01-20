@@ -16,7 +16,7 @@ module MinecraftQuery
   #   >> rcon.command('say hi')
   #   => "\xA7d[Server] hi\n"
   #
-  #   >> query = Query::simpleQuery('localhost', 25565)
+  #   >> query = MCQuery::simpleQuery('localhost', 25565)
   #   => {:motd=>"ECS Survival", :gametype=>"SMP", :map=>"world", :numplayers=>"1", :maxplayers=>"20"}
   #   >> players = query[:numplayers] + '/' + query[:maxplayers]
   #   => 1/20
