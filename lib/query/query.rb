@@ -9,7 +9,7 @@ class MCQuery
     
     def self.key
         begin
-            timeout(0.25) do
+            timeout(1) do
                 start = @sock.send("\xFE\xFD\x09\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT), 0)
                 t = @sock.recvfrom(1460)[0]
                 key = t[5...-1].to_i
@@ -29,7 +29,7 @@ class MCQuery
         @port = port
         init 
         begin
-            timeout(0.25) do
+            timeout(1) do
                 query = @sock.send("\xFE\xFD\x00\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT) + @key.to_s, 0)
                 data = @sock.recvfrom(1460)[0]
                 buffer = data[5...-1]
@@ -49,7 +49,7 @@ class MCQuery
         @port = port
         init
         begin
-            timeout(0.25) do
+            timeout(1) do
                 query = @sock.send("\xFE\xFD\x00\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT) + @key.to_s + "\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT), 0)
                 data = @sock.recvfrom(1460)[0]
                 buffer = data[11...-1]
