@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'minecraft-query'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = '2013-12-12'
   s.summary     = "Minecraft Querying lib"
   s.license     = 'The MIT License'
