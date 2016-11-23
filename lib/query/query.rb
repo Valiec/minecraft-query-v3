@@ -88,7 +88,8 @@ class MCQuery
                 return vals.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
             end
         rescue StandardError => e
-            return "An other error occured. Check your minecraft config and tell the tech monkey this:"
+            puts e
+            #return "An other error occured. Check your minecraft config and tell the tech monkey this:"
             raise e
         end
     end
