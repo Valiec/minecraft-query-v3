@@ -31,7 +31,7 @@ class MCQuery
         @port = port
         init 
         begin
-            timeout(1) do
+            Timeout.timeout(1) do
                 query = @sock.send("\xFE\xFD\x00\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT) + @key.to_s, 0)
                 data = @sock.recvfrom(1460)[0]
                 buffer = data[5...-1]
