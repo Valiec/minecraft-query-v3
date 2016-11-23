@@ -1,4 +1,6 @@
 class MCQuery
+    require 'timeout'
+
     def self.init
         @sock = UDPSocket.new
         @sock.connect(@addr,@port)
