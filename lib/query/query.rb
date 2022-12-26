@@ -30,6 +30,7 @@ class MCQuery
         @addr = addr
         @port = port
         init 
+        @val[:success] = true
         begin
             Timeout.timeout(1) do
                 query = @sock.send("\xFE\xFD\x00\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT) + @key.to_s, 0)
@@ -42,7 +43,9 @@ class MCQuery
             end
         return @val
         rescue StandardError => e
-            return e
+            @val[:success] = false
+            @val[:error] = e
+            return @val
         end
     end
     
@@ -50,6 +53,7 @@ class MCQuery
         @addr = addr
         @port = port
         init
+        @val[:success] = true
         begin
             Timeout.timeout(1) do
                 query = @sock.send("\xFE\xFD\x00\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT) + @key.to_s + "\x01\x02\x03\x04".force_encoding(Encoding::ASCII_8BIT), 0)
@@ -88,9 +92,9 @@ class MCQuery
                 return vals.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
             end
         rescue StandardError => e
-            puts e
-            #return "An other error occured. Check your minecraft config and tell the tech monkey this:"
-            raise e
+            @val[:success] = false
+            @val[:error] = e
+            return @val
         end
     end
 end
