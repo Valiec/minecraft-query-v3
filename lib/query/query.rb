@@ -91,6 +91,7 @@ class MCQuery
                 vals["plugins"] = plugins
                 vals["server"] = server
                 vals["timestamp"] = Time.now
+                vals["success"] = true
                 return vals.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
             end
         rescue StandardError => e
