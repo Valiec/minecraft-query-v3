@@ -1,7 +1,9 @@
 minecraft-query
 ===============
 
-Official version 1 of the old forked rubygem, completely redone/refactored.
+A fork/revival of minecraft-query:
+
+Original README below:
 
 [![Gem Version](https://badge.fury.io/rb/minecraft-query.png)](http://badge.fury.io/rb/minecraft-query)
 
