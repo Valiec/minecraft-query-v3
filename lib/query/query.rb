@@ -77,6 +77,8 @@ class MCQuery
                 players = players[0..-2] if players
                 if players
                     vals[:players] = players.split("\x00")
+                else
+                    vals[:players] = []
                 end
                 puts vals
                 vals["raw_plugins"] = vals["plugins"]
